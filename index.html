@@ -4,15 +4,68 @@
     <meta charset="utf-8">
     <title>Grimmer's Resume</title>
 
-    <!-- <script language="javascript" type="text/javascript">
+    <script language="javascript" type="text/javascript">
       function resizeIframe(obj) {
-        obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
-    }
-    </script> -->
+
+        var xx = x.contentWindow.document.body.scrollHeight;
+        console.log('2height:', xx);
+
+        // obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+      }
+    </script>
+    <script language="javascript">
+
+      function SetCwinHeight(){
+      	var iframeid=document.getElementById("content"); //iframe id
+        debugger;
+      	if (document.getElementById){
+      	  if (iframeid && !window.opera) {
+      			if (iframeid.contentDocument && iframeid.contentDocument.body.offsetHeight) {
+      				iframeid.height = iframeid.contentDocument.body.offsetHeight;
+      			}
+      			else if(iframeid.Document && iframeid.Document.body.scrollHeight) {
+      				iframeid.height = iframeid.Document.body.scrollHeight;
+      			}
+
+            console.log('3h:',iframeid.height);
+      		}
+      	}
+      };
+
+
+      // can use on onload event
+    </script>
+
 </head>
-<body>
-    <div align="center"> 
-      <iframe align="middle" style="max-width: 960px;width: 100%;" height="3600px" frameborder="0" scrolling="no" src="https://www.visualcv.com/grimmer-kang?view=embed"></iframe>
+<body id="bodyid">
+    <div align="center" id="divid">
+      <iframe id="content" style="max-width: 960px;width: 100%;"  height="3500px" frameborder="0" scrolling="no" src="http://www.visualcv.com/grimmer-kang?view=embed"></iframe>
     </div>
+
+    <script>
+      var x=document.getElementById("content");
+      var y=document.getElementById("bodyid");
+      // var z=document.getElementById("divid");
+
+      // var xx = x.contentWindow.document.body.scrollHeight;
+      // console.log('height:', xx);
+
+      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        // some code..
+        x.style.maxWidth = "480px";
+        // x.style.width = "480px";
+
+        y.style.maxWidth = "480px";
+        // y.style.width = "480px";
+
+        x.style.height = "4300px";
+      }
+      else {
+        x.style.width = '100%';
+      }
+
+      // SetCwinHeight();
+
+    </script>
 </body>
 </html>
